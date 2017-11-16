@@ -9,9 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var display: UILabel!
+    var userIsTyping: Bool = false
+    
     @IBAction func touchClear(_ sender: UIButton) {
-        let title = sender.currentTitle!
-        print("\(title)")
+        userIsTyping = false
+        display?.text = "0"
     }
     
     @IBAction func touchPlusMinus(_ sender: UIButton) {
@@ -24,40 +27,15 @@ class ViewController: UIViewController {
         print("\(title)")
     }
     
-    @IBAction func touchOne(_ sender: UIButton) {
-        print("1")
-    }
-    
-    @IBAction func touchTwo(_ sender: UIButton) {
-        print("2")
-    }
-    
-    @IBAction func touchThree(_ sender: UIButton) {
-        print("3")
-    }
-    
-    @IBAction func touchFour(_ sender: UIButton) {
-        print("4")
-    }
-    
-    @IBAction func touchFive(_ sender: UIButton) {
-        print("5")
-    }
-    
-    @IBAction func touchSix(_ sender: UIButton) {
-        print("6")
-    }
-    
-    @IBAction func touchSeven(_ sender: UIButton) {
-        print("7")
-    }
-    
-    @IBAction func touchEight(_ sender: UIButton) {
-        print("8")
-    }
-    
-    @IBAction func touchNine(_ sender: UIButton) {
-        print("9")
+    @IBAction func touchDigit(_ sender: UIButton) {
+        let digit = sender.currentTitle!
+        if userIsTyping {
+            let textDisplay = display?.text ?? ""
+            display?.text = textDisplay + digit
+        } else {
+            display?.text = digit
+            userIsTyping = true
+        }
     }
     
 }
