@@ -17,16 +17,6 @@ class ViewController: UIViewController {
         display?.text = "0"
     }
     
-    @IBAction func touchPlusMinus(_ sender: UIButton) {
-        let title = sender.currentTitle!
-        print("\(title)")
-    }
-    
-    @IBAction func touchPercentage(_ sender: UIButton) {
-        let title = sender.currentTitle!
-        print("\(title)")
-    }
-    
     @IBAction func touchDigit(_ sender: UIButton) {
         let digit = sender.currentTitle!
         if userIsTyping {
@@ -38,4 +28,21 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func performOperation(_ sender: UIButton) {
+        userIsTyping = false
+        if let mathSymbol = sender.currentTitle {
+            switch mathSymbol {
+            case "+":
+                break;
+            case "-":
+                break;
+            case "⨉":
+                break;
+            case "÷":
+                break;
+            default:
+                break;
+            }
+        }
+    }
 }
