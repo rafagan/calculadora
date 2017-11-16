@@ -9,17 +9,55 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBAction func touchClear(_ sender: UIButton) {
+        let title = sender.currentTitle!
+        print("\(title)")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func touchPlusMinus(_ sender: UIButton) {
+        let title = sender.currentTitle!
+        print("\(title)")
     }
-
-
+    
+    @IBAction func touchPercentage(_ sender: UIButton) {
+        let title = sender.currentTitle!
+        print("\(title)")
+    }
+    
+    @IBAction func touchOne(_ sender: UIButton) {
+        print("1")
+    }
+    
+    @IBAction func touchTwo(_ sender: UIButton) {
+        print("2")
+    }
+    
+    @IBAction func touchThree(_ sender: UIButton) {
+        print("3")
+    }
+    
+    @IBAction func touchFour(_ sender: UIButton) {
+        print("4")
+    }
+    
+    @IBAction func touchFive(_ sender: UIButton) {
+        print("5")
+    }
+    
+    @IBAction func touchSix(_ sender: UIButton) {
+        print("6")
+    }
+    
+    @IBAction func touchSeven(_ sender: UIButton) {
+        print("7")
+    }
+    
+    @IBAction func touchEight(_ sender: UIButton) {
+        print("8")
+    }
+    
+    @IBAction func touchNine(_ sender: UIButton) {
+        print("9")
+    }
+    
 }
-

@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		260D8AD31FB9C6CD00E0ABA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D8AD21FB9C6CD00E0ABA7 /* AppDelegate.swift */; };
 		260D8AD51FB9C6CD00E0ABA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D8AD41FB9C6CD00E0ABA7 /* ViewController.swift */; };
-		260D8AD81FB9C6CD00E0ABA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 260D8AD61FB9C6CD00E0ABA7 /* Main.storyboard */; };
 		260D8ADA1FB9C6CD00E0ABA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 260D8AD91FB9C6CD00E0ABA7 /* Assets.xcassets */; };
 		260D8ADD1FB9C6CD00E0ABA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 260D8ADB1FB9C6CD00E0ABA7 /* LaunchScreen.storyboard */; };
+		26394BEA1FBB79A30017FF71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 260D8AD61FB9C6CD00E0ABA7 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,14 +54,22 @@
 		260D8AD11FB9C6CD00E0ABA7 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				260D8AD21FB9C6CD00E0ABA7 /* AppDelegate.swift */,
+				26BF841B1FBDFA2A004B9280 /* Suport Files */,
 				260D8AD41FB9C6CD00E0ABA7 /* ViewController.swift */,
 				260D8AD61FB9C6CD00E0ABA7 /* Main.storyboard */,
-				260D8AD91FB9C6CD00E0ABA7 /* Assets.xcassets */,
-				260D8ADB1FB9C6CD00E0ABA7 /* LaunchScreen.storyboard */,
-				260D8ADE1FB9C6CD00E0ABA7 /* Info.plist */,
 			);
 			path = Calculator;
+			sourceTree = "<group>";
+		};
+		26BF841B1FBDFA2A004B9280 /* Suport Files */ = {
+			isa = PBXGroup;
+			children = (
+				260D8ADE1FB9C6CD00E0ABA7 /* Info.plist */,
+				260D8ADB1FB9C6CD00E0ABA7 /* LaunchScreen.storyboard */,
+				260D8AD21FB9C6CD00E0ABA7 /* AppDelegate.swift */,
+				260D8AD91FB9C6CD00E0ABA7 /* Assets.xcassets */,
+			);
+			name = "Suport Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,9 +131,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26394BEA1FBB79A30017FF71 /* Main.storyboard in Resources */,
 				260D8ADD1FB9C6CD00E0ABA7 /* LaunchScreen.storyboard in Resources */,
 				260D8ADA1FB9C6CD00E0ABA7 /* Assets.xcassets in Resources */,
-				260D8AD81FB9C6CD00E0ABA7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
