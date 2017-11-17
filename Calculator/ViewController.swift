@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
-    var userIsTyping: Bool = false
+    
+    private var userIsTyping: Bool = false
+    private var manager = CalculatorManager()
     
     var displayValue: Double {
         get {
@@ -38,31 +40,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func performOperation(_ sender: UIButton) {
-        userIsTyping = false
+        if userIsTyping {
+            userIsTyping = false
+            manager.setOperation(displayValue)
+        }
 
         if let mathSymbol = sender.currentTitle {
-            switch mathSymbol {
-            case "+":
-                break;
-            case "-":
-                break;
-            case "⨉":
-                break;
-            case "÷":
-                break;
-            case "=":
-                break;
-            case "±":
-                display.text = String(-displayValue)
-                break;
-            case "%":
-                break;
-            case "√":
-                display.text = String(sqrt(displayValue))
-                break;
-            default:
-                break;
-            }
+            manager.performOperation(mathSymbol)
+        }
+        
+        if let result = manager.result {
+            displayValue = result
         }
     }
 }

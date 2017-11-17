@@ -17,11 +17,34 @@ struct CalculatorManager {
         }
     }
     
-    func performOperation(_ symbol: String) {
-        
+    mutating func performOperation(_ symbol: String) {
+        if let value = accumulator {
+            switch symbol {
+            case "√":
+                accumulator = sqrt(value)
+                break;
+            case "±":
+                accumulator = -value
+                break;
+            case "+":
+                break;
+            case "-":
+                break;
+            case "⨉":
+                break;
+            case "÷":
+                break;
+            case "=":
+                break;
+            case "%":
+                break;
+            default:
+                break;
+            }
+        }
     }
     
-    mutating func setOperator(_ operation: Double) {
+    mutating func setOperation(_ operation: Double) {
         accumulator = operation
     }
 }
