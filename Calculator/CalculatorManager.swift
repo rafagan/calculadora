@@ -8,26 +8,6 @@
 
 import Foundation
 
-func changeSign(_ value: Double) -> Double {
-    return -value
-}
-
-func plus(_ v1: Double, _ v2: Double) -> Double {
-    return v1 + v2
-}
-
-func minus(_ v1: Double, _ v2: Double) -> Double {
-    return v1 - v2
-}
-
-func times(_ v1: Double, _ v2: Double) -> Double {
-    return v1 * v2
-}
-
-func division(_ v1: Double, _ v2: Double) -> Double {
-    return v1 / v2
-}
-
 struct CalculatorManager {
     private var accumulator: Double?
     private var binaryOperationMemory: PreviousBinaryOperation?
@@ -50,11 +30,11 @@ struct CalculatorManager {
     
     private let operations: Dictionary<String, Operation> = [
         "√": Operation.unaryOperation(sqrt),
-        "±": Operation.unaryOperation(changeSign),
-        "+": Operation.binaryOperation(plus),
-        "–": Operation.binaryOperation(minus),
-        "⨉": Operation.binaryOperation(times),
-        "÷": Operation.binaryOperation(division),
+        "±": Operation.unaryOperation({ -$0 }),
+        "+": Operation.binaryOperation({ $0 + $1 }),
+        "–": Operation.binaryOperation({ $0 - $1 }),
+        "⨉": Operation.binaryOperation({ $0 * $1 }),
+        "÷": Operation.binaryOperation({ $0 / $1 }),
         "=": Operation.equals,
         //"%": Operation.binaryOperation(???)
     ]
