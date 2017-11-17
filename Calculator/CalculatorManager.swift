@@ -31,8 +31,8 @@ struct CalculatorManager {
     private let operations: Dictionary<String, Operation> = [
         "√": Operation.unaryOperation(sqrt),
         "±": Operation.unaryOperation({ -$0 }),
-        "+": Operation.binaryOperation({ $0 + $1 }),
-        "–": Operation.binaryOperation({ $0 - $1 }),
+        "+": Operation.binaryOperation({ (v1, v2) in v1 + v2 }),
+        "–": Operation.binaryOperation({ (v1: Double, v2: Double) -> Double in return v1 - v2 }),
         "⨉": Operation.binaryOperation({ $0 * $1 }),
         "÷": Operation.binaryOperation({ $0 / $1 }),
         "=": Operation.equals,
