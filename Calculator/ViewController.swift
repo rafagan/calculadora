@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     @IBAction func performOperation(_ sender: UIButton) {
         if userIsTyping {
             userIsTyping = false
-            manager.setOperation(displayValue)
+            manager.setOperand(displayValue)
         }
 
         if let mathSymbol = sender.currentTitle {

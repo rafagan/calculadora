@@ -30,20 +30,32 @@ func division(_ v1: Double, _ v2: Double) -> Double {
 
 struct CalculatorManager {
     private var accumulator: Double?
+    private var binaryOperationMemory: PreviousBinaryOperation?
     
     private enum Operation {
         case unaryOperation((Double) -> Double)
         case binaryOperation((Double, Double) -> Double)
+        case equals
+        case undefined
+    }
+    
+    private struct PreviousBinaryOperation {
+        let function: (Double, Double) -> Double
+        let firstOperand: Double
+        
+        func perform(with secondOperand: Double) -> Double {
+            return function(firstOperand, secondOperand)
+        }
     }
     
     private let operations: Dictionary<String, Operation> = [
         "√": Operation.unaryOperation(sqrt),
         "±": Operation.unaryOperation(changeSign),
         "+": Operation.binaryOperation(plus),
-        "-": Operation.binaryOperation(minus),
+        "–": Operation.binaryOperation(minus),
         "⨉": Operation.binaryOperation(times),
         "÷": Operation.binaryOperation(division),
-        //"=": Operation.binaryOperation(???),
+        "=": Operation.equals,
         //"%": Operation.binaryOperation(???)
     ]
     
@@ -58,13 +70,27 @@ struct CalculatorManager {
             switch operation {
             case .unaryOperation(let op):
                 accumulator = (accumulator != nil ? op(accumulator!) : accumulator)
+            case .binaryOperation(let op):
+                if accumulator != nil {
+                    binaryOperationMemory = PreviousBinaryOperation(function: op, firstOperand: accumulator!)
+                    accumulator = nil
+                }
+            case .equals:
+                doPreviousBinaryOperation()
             default:
                 break
             }
         }
     }
     
-    mutating func setOperation(_ operation: Double) {
-        accumulator = operation
+    mutating func doPreviousBinaryOperation() {
+        if binaryOperationMemory != nil && accumulator != nil {
+            accumulator = binaryOperationMemory!.perform(with: accumulator!)
+            binaryOperationMemory = nil
+        }
+    }
+    
+    mutating func setOperand(_ operand: Double) {
+        accumulator = operand
     }
 }
