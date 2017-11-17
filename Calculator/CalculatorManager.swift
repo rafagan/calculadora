@@ -21,7 +21,7 @@ struct CalculatorManager {
         
     }
     
-    func setOperator(_ operator: Double) {
-        
+    mutating func setOperator(_ operation: Double) {
+        accumulator = operation
     }
 }
