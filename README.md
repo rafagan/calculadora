@@ -6,3 +6,4 @@ The commits and branches are organized to explain how to develop it in lessons.
 
 
 ![picture](portrait.png)
+ 
